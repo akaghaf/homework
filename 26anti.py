@@ -11,14 +11,10 @@ for x in range(1, len(dna)+1):
 	string += dna[-x]
 complement = ""
 for character in string:
-	if character == "A":
-		complement += "T"
-	if character == "T":
-		complement += "A"
-	if character == "C":
-		complement += "G"
-	if character == "G":
-		complement += "C"
+	if character == "A"  : complement += "T"
+	elif character == "T": complement += "A"
+	elif character == "C": complement += "G"
+	else                 : complement += "C"
 print(complement)
 
 

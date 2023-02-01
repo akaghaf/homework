@@ -6,15 +6,17 @@
 # Also print out how many combinations there are
 
 # Hint: if you get stuck for more than 10 minutes, get help
-import itertools
+
 AAs = "ACDEFGHIKLMNPQRSTVWY"
-aalist = []
-for char in AAs:
-	aalist.extend(char)
-aalistcomb = (list(itertools.combinations(aalist, 2)))
-for x in aalistcomb:
-	print(x[0], x[1])
-print(len(aalistcomb))
+
+counter = 0
+for i in range(0,len(AAs)):
+	for j in range(i,len(AAs)):
+		if AAs[i] != AAs[j]:
+			counter += 1
+			print(AAs[i], AAs[j])
+
+print(counter)
 
 """
 python3 28aapairs.py

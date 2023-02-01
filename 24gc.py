@@ -9,7 +9,8 @@ gc = 0
 for base in dna:
 	if base == "G" or base == "C":
 		gc += 1
-print(round(gc/len(dna),2))
+gcpercent = (gc/len(dna))
+print("%.2f"%gcpercent)
 
 """
 python3 24gc.py

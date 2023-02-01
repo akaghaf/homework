@@ -8,7 +8,7 @@
 
 # Note: set random.seed() if you want repeatable random numbers
 import random
-bases = ['A', 'T','A', 'T','A', 'T', 'C', 'G','C', 'G']
+bases = 'ATATATCGCG'
 string = ""
 for x in range(30):
 	string += random.choice(bases)
