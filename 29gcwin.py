@@ -15,7 +15,12 @@ seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
 w = 11
 s = 0
 while w < len(seq) +1:
-	print(s,seq[s:w],round((seq[s:w].count("G")+seq[s:w].count("C"))/(w-s), 4))
+	segment = seq[s:w]
+	gc = 0
+	for nucleotide in segment:
+		if nucleotide == "G" or nucleotide == "C": gc += 1
+	
+	print(s,segment, "%.4f" % (gc/len(segment)))
 	w += 1
 	s += 1
 
