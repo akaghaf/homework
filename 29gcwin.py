@@ -12,17 +12,34 @@
 # Consider the pros/cons of this algorithm vs. nested loops
 
 seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
+#seq = '01234567'
 w = 11
 s = 0
-while w < len(seq) +1:
-	segment = seq[s:w]
-	gc = 0
-	for nucleotide in segment:
-		if nucleotide == "G" or nucleotide == "C": gc += 1
+gc = 0
+
+## O(n**2) implementation
+
+# while w < len(seq) +1:
+# 	segment = seq[s:w]
+# 	gc = 0
+# 	for nucleotide in segment:
+# 		if nucleotide == "G" or nucleotide == "C": gc += 1
 	
-	print(s,segment, "%.4f" % (gc/len(segment)))
-	w += 1
-	s += 1
+# 	print(s,segment, "%.4f" % (gc/len(segment)))
+# 	w += 1
+# 	s += 1
+
+## O(n) implementation
+for nt in seq[0:w]:
+	if nt == "G" or nt == "C": gc += 1
+for i in range(len(seq)-w+1):
+	print(i, seq[i:i+w], "%.4f" % (gc/w))
+	if seq[i] == "G" or seq[i] == "C"    : gc -= 1
+	if i+w > len(seq)-1                  :  break
+	if seq[i+w] == "G" or seq[i+w] == "C": gc += 1
+
+
+
 
 """
 python3 26gcwin.py
