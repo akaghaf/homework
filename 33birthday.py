@@ -14,8 +14,11 @@ import sys
 days = int(sys.argv[1])
 ppl  = int(sys.argv[2])
 Pprime = 1
+dayslist = []
 for i in range(0, ppl):
-	Pprime *= (days-i)/days
+	dayslist.append(days-i)
+for j in dayslist:
+	Pprime *= j/days
 P = 1-Pprime
 print("%.3f" % P)
 
