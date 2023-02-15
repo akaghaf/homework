@@ -19,7 +19,6 @@ for line in f:
     else: seqlist.append(line)
 
 seqstring = "".join(seqlist)
-print(len(seqstring))
 AAS = "ACDEFGHIKLMNPQRSTVWY"
 for aa in AAS:
     aacount = seqstring.count(aa)
