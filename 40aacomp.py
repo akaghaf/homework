@@ -10,20 +10,23 @@
 # Variation: use a list
 
 import gzip, sys
-with gzip.open(sys.argv[1], 'rt') as f:
-    f = f.read()
-f = f.split('\n')
-seqlist = []
-for line in f:
-    if line.startswith(">"): pass
-    else: seqlist.append(line)
 
-seqstring = "".join(seqlist)
 AAS = "ACDEFGHIKLMNPQRSTVWY"
-for aa in AAS:
-    aacount = seqstring.count(aa)
-    aafreq = seqstring.count(aa)/len(seqstring)
-    print(aa, aacount, "%.4f" % aafreq)
+aact = [0]*20
+tot = 0
+
+with gzip.open(sys.argv[1], 'rt') as f:
+	for line in f.readlines():
+		if line.startswith(">"): continue
+		line = line.rstrip()
+		tot += len(line)
+		for aa in AAS:
+			aact[AAS.find(aa)] += line.count(aa)
+
+for i in range(len(aact)):
+	fraction = aact[i]/tot
+	print(AAS[i], aact[i], "%.4f" % fraction)
+
 
 """
 python3 40aacomp.py ~/DATA/E.coli/GCF_000005845.2_ASM584v2_protein.faa.gz
