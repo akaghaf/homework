@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 # 50dust.py
 
 # Write a better version of your 42dust.py program
@@ -63,6 +66,7 @@ arg = parser.parse_args()
 
 for defline, seq in  mcb185.read_fasta(arg.file):
 	print(defline)
+	seq = seq.upper()
 	# seq = seq[:1000]
 	startwin = seq[:arg.w]
 	A,C,G,T, cc = 0,0,0,0,0
@@ -118,7 +122,7 @@ for defline, seq in  mcb185.read_fasta(arg.file):
 
 
 """
-python3 50dust.py -w 11 -t 1.4 -s e.coli.fna  | head
+python3 50dust.py -w 11 -t 1.4 -s ~/DATA/E.coli/GCF_000005845.2_ASM584v2_genomic.fna.gz  | head
 >NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete genome
 AGCTTTTcATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTaaaaaaaGAGTGTC
 TGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAattaaaattttATTGACTTAGG
