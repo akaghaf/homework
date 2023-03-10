@@ -65,7 +65,7 @@ parser.add_argument('-s', required=False, action='store_true',
 arg = parser.parse_args()
 
 for defline, seq in  mcb185.read_fasta(arg.file):
-	print(defline)
+	print("\n" + ">" + defline)
 	seq = seq.upper()
 	# seq = seq[:1000]
 	startwin = seq[:arg.w]
@@ -119,6 +119,7 @@ for defline, seq in  mcb185.read_fasta(arg.file):
 			cc += 1
 		if cc % 60 == 0:
 			print("\n",end="")
+
 
 
 """
